@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        /* CABECALHO */
+        header#cabecalho h1 {
+            text-align: center;
+            color: white;
+        }
+
+        /* CORPO */
+        section#corpo {
+            width: 800px;
+            height: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: blue;
+            border-radius: 10px;
+        }
+
+        div#notas {
+            text-align: center;
+            position: relative;
+            left: 30px;
+            top: 50px;
+            width: 310px;
+            height: 400px;
+            color: white;
+        }
+
+        div#notas input, p {
+            margin-top: 40px;
+            margin-left: 10px;
+            text-align: left;
+            font-size: 14pt;
+        }
+
+        div#calculo {
+            position: relative;
+            left: 450px;
+            top: -245px;
+            background-color: black;
+            width: 250px;
+            height: 50px;
+        }
+
+        div#calculo input {
+            width: 100%;
+            height: 100%;
+            font-size: 16pt;
+        }
+
+        div#resultado {
+            position: relative;
+            text-align: center;
+            font-size: 16pt;
+            left: 425px;
+            top: -175px;
+            color: white;
+            width: 300px;
+            height: 50px;
+        }
+
+        /* RODAPÉ */
+        footer#rodape {
+            text-align: center;
+            font-size: 16pt;
+        }
+
+        footer#rodape a {
+            text-decoration: none;
+            color: white;
+            background-color: black;
+            padding: 5px;
+            border-radius: 10px;
+        }
+    </style>
+    <script lang="javascript">
+        function Calcular() {
+            nota01 = window.document.getElementById('iNota01')
+            nota02 = window.document.getElementById('iNota02')
+            nota03 = window.document.getElementById('iNota03')
+            n1 = Number(nota01.value)
+            n2 = Number(nota02.value)
+            n3 = Number(nota03.value)
+            res = window.document.getElementById('resultado')
+            med = (60 - ((n1 * 2 ) + (n2 * 2) + (n3 * 3))) / 3
+            if (med <= 0) {
+                res.innerText = `Parabéns, você não precisa de nota nessa matéria para passar de ano`
+            } else if (med <= 4) {
+                res.innerText = `Parabéns, você precisa de ${med.toFixed(1)} nessa matéria para passar de ano`
+            } else if (med <= 7) {
+                res.innerText = `Você precisa de ${med.toFixed(1)} nessa matéria para passar de ano`
+            } else if (med <= 9) {
+                res.innerText = `Infelizmente, você precisa de ${med.toFixed(1)} nessa matéria para passar de ano`
+            } else if (med <= 10) {
+                res.innerText = `EITA, você precisa de ${med.toFixed(1)} nessa matéria para passar de ano`
+            } else {
+                res.innerText = `Infelizmente você reprovou nessa matéria :(`
+            }
+        }
+    </script>
+    <title>Calculadora de Média IF</title>
+</head>
+<body>
+    <header id="cabecalho">
+        <h1>Calculadora de Média IF</h1>
+    </header>
+    <section id="corpo">
+        <div id="notas">
+            <h1>Digite suas médias</h1>
+            <p><label for="iNota01">Primeira média:</label>
+            <input type="number" name="nNota01" id="iNota01" min="0" max="10"/></p>
+            <p><label for="iNota02">Segunda média:</label>
+            <input type="number" name="nNota02" id="iNota02" min="0" max="10"/></p>
+            <p><label for="iNota03">Terceira média:</label>
+            <input type="number" name="nNota03" id="iNota03" min="0" max="10"/></p>
+        </div>
+        <div id="calculo">
+            <input type="button" value="Calcular" onclick="Calcular()"/>
+        </div>
+        <div id="resultado">
+            Resultado das médias
+        </div>
+    </section>
+    <footer id="rodape">
+        <p><a href="https://github.com/Vitor-Manoel1014" title="Meu perfil no GitHub" target="_blank">&copy; Vitor Manoel</a></p>
+    </footer>
+</body>
+</html>
